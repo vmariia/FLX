@@ -1,0 +1,208 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: normal 300 15px/24px Roboto, Ubuntu, Cantarell, Helvetica, sans-serif; }
+
+h1, h3, h4, p {
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+header {
+  position: relative;
+  min-height: 100vh;
+  background-image: url(../img/header_background_v1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  header .top-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  header section {
+    text-align: center;
+    padding: 160px 30px; }
+    header section h1 {
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 20px; }
+
+.logo img {
+  max-width: 230px; }
+
+nav a {
+  padding: 15px 110px;
+  display: inline-block;
+  position: relative;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase; }
+  nav a:after {
+    content: '';
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #5f7e8c; }
+  nav a:last-child:after {
+    content: none; }
+
+.main-wrapper {
+  background-color: #FFFFFF; }
+
+main {
+  max-width: 990px;
+  margin: 0 auto; }
+  main section, main .toolbar {
+    margin: 0 15px; }
+
+.toolbar {
+  padding: 20px 0px;
+  text-align: right; }
+  .toolbar input {
+    max-width: 200px;
+    width: 100%;
+    outline: none;
+    padding: 10px 15px;
+    line-height: 24px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #5f7e8c;
+    color: #000;
+    font-size: 16px; }
+
+::-webkit-input-placeholder {
+  color: #000;
+  font-size: 16px; }
+
+.post-list {
+  margin-bottom: 60px; }
+  .post-list h1 {
+    text-align: right;
+    color: #000;
+    text-transform: uppercase; }
+  .post-list article {
+    display: flex;
+    background-color: #EFEFEF;
+    padding: 10px 20px 10px 10px;
+    margin-bottom: 20px; }
+    .post-list article:last-child {
+      margin-bottom: 0; }
+    .post-list article img {
+      margin-right: 10px;
+      max-width: 280px;
+      max-height: 280px; }
+    .post-list article div {
+      text-align: right; }
+  .post-list .post {
+    text-align: left; }
+    .post-list .post .post-description {
+      text-align: left;
+      padding: 10px 0px;
+      border-bottom: 1px solid #5f7e8c;
+      color: #ea0000;
+      font-size: 12px; }
+    .post-list .post h3 {
+      margin: 10px 0px 0px;
+      color: #00aeae;
+      text-transform: uppercase; }
+    .post-list .post p {
+      margin: 0px 0px 25px;
+      color: #000; }
+
+.btn {
+  background-color: #01ACAC;
+  color: #FFFFFF;
+  padding: 10px 70px;
+  border: none;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer; }
+
+.about {
+  padding: 0 10px;
+  margin-bottom: 60px; }
+  .about img {
+    max-width: 100%; }
+  .about h1 {
+    text-align: right;
+    color: #000;
+    text-transform: uppercase; }
+  .about p {
+    margin-bottom: 20px;
+    color: #000; }
+
+.contact-form h1, .contact-form h4 {
+  text-align: right;
+  color: #000;
+  text-transform: uppercase; }
+
+form {
+  margin-top: 30px;
+  text-align: right; }
+  form .input-row {
+    display: flex;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 20px; }
+    form .input-row:last-child {
+      margin-bottom: 0; }
+    form .input-row.w50 .input-item {
+      width: 50%; }
+    form .input-row .input-item {
+      width: 100%;
+      margin: 0 5px;
+      text-align: left; }
+  form label {
+    display: block;
+    color: #00aeae;
+    text-align: right; }
+  form input {
+    width: 100%;
+    outline: none;
+    padding: 10px 15px;
+    line-height: 24px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #5f7e8c;
+    color: #000;
+    font-size: 16px; }
+  form textarea {
+    min-height: 120px;
+    resize: vertical;
+    height: 120px;
+    width: 100%;
+    outline: none;
+    padding: 10px 15px;
+    line-height: 24px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #5f7e8c;
+    color: #000;
+    font-size: 16px; }
+  form input[type='submit'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; }
+
+footer {
+  padding: 15px;
+  color: #000;
+  font-size: 12px; }
+
+/*# sourceMappingURL=style1.css.map */
