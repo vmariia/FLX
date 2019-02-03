@@ -1,0 +1,364 @@
+/*
+ * Feel free to change name of colors if you need it
+ * Feel free to add new colors if you need it
+ */
+body {
+    font-family: roboto;
+    background-color: #0b192f;
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+.post-1 {
+	background: #B71757;
+}
+.post-2 {
+	background: #0D7E71;
+}
+.post-3 {
+	background: #b1660e;
+}
+.post-4 {
+	background: #d12767;
+}
+.post-5 {
+	background: #2d95bb;
+}
+
+#main {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.toggle-block {
+    display: none;
+}
+
+header {
+    background-color: #162b4d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    height: 110px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+}
+.logo span {
+    color: #B71757;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li:last-child {
+    margin-right: 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 110px;
+    display: inline-block;
+    padding: 0 25px;
+}
+
+nav a:hover,
+nav a:visited {
+    background-color: #b8b8b8;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+.post-wrapper {
+    width: 77%;
+}
+.post {
+    display: flex;
+}
+.post:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+.post .image-wrapper {
+    width: 50%;
+}
+.post .image-wrapper:hover {
+    filter: opacity(50%);
+    cursor: pointer;
+}
+.post .image-wrapper img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.post .article {
+    width: 50%;
+    padding: 5vw 6vw 5vw 5vw;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.post .article:hover {
+    opacity: 0.4;    
+    cursor: pointer;
+}
+.post:nth-child(2n) .article {
+    text-align: right;
+    padding-right: 5vw;
+    padding-left: 6vw;
+}
+.post .article .title {
+    font-size: 4.4vw;
+    line-height: 4.2vw;
+    margin-bottom: 20px;
+}
+.post .article p {
+    font-size: 1.5vw;
+    line-height: 2.2vw;
+}
+.post .date-wrapper {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    color: #fff;
+    opacity: 0.5;
+    text-align: center;
+}
+.post .date-wrapper .date {
+    font-size: 4vw;
+}
+.post .date-wrapper span {
+    font-size: 2vw;
+}
+.post:nth-child(2n) .date-wrapper {
+    left: 10px;
+    right: auto;
+}
+.post.type2 .article {
+    width: 100%;
+}
+
+.post.type2:nth-child(2n) .article {
+    text-align: left;
+    padding-right: 6vw;
+    padding-left: 5vw;
+}
+
+.post.type2:nth-child(2n) .date-wrapper {
+    left: auto;
+    right: 10px;
+}
+
+aside {
+    width: 21.5%;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+.news-item:last-child {
+    margin-bottom: 0;
+}
+
+.news-item img {
+    max-width: 100%;
+}
+
+.news-item .news-desc {
+    background-color: #fff;
+    padding: 2.5vw;
+    font-weight: 300;
+}
+
+.news-item .title {
+    color: #03122b;
+    font-size: 2vw;
+    line-height: 2.5vw;
+    margin-bottom: 15px;
+}
+
+.news-item p {
+    color: #637794;
+    font-size: 1.2vw;
+    line-height: 1.7vw;
+}
+
+footer {
+    background-color: #162b4d;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 30px;
+    margin-top: 25px;
+    color: #fff;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 22px;
+}
+footer a {
+    line-height: 20px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 30px 30px 70px;
+    }
+    nav {
+        display: none;
+    }
+    .toggle-block {
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: relative;
+    }
+    .toggle-block span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+    }
+    .toggle-block span:nth-child(1) {
+        top: 0;
+    }
+
+    .toggle-block span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .toggle-block span:nth-child(3) {
+        bottom: 0;
+    }
+    .post-wrapper {
+        width: 55%;
+    }
+    .post .image-wrapper {
+        width: 100%;
+    }
+    .post .article {
+        width: 100%;
+    }
+    .post .article .title {
+        font-size: 5.4vw;
+        line-height: 5.5vw;
+    }
+    .post .article p {
+        font-size: 2.5vw;
+        line-height: 3.6vw;
+    }
+    .post .date-wrapper {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        margin-top: 9vw;
+    }
+    .post:nth-child(2n) .date-wrapper {
+        left: auto;
+    }
+    .post .date-wrapper .date {
+        font-size: 7vw;
+    }
+    .post .date-wrapper span {
+        font-size: 3vw;
+    }
+    .post {
+        flex-direction: column;
+    }
+    .post:nth-child(2n) {
+        flex-direction: column;
+    }
+    .post:nth-child(2n) .article {
+        text-align: left;
+    }
+    aside {
+        width: 42.5%;
+    }
+    .news-item .title {
+        font-size: 3.5vw;
+        line-height: 3.7vw;
+    }
+    .news-item p {
+        font-size: 2.2vw;
+        line-height: 2.9vw;
+    }
+    .news-item .news-desc {
+        padding: 4vw;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .copyright {
+        opacity: 0.5;
+    }
+    footer p {
+        opacity: 0.5;
+    }
+}
+@media screen and (max-width: 480px) {
+    main {
+        flex-direction: column;
+    }
+    .post-wrapper {
+        width: 100%;
+    }
+    aside {
+        width: 100%;
+    }
+    .post .article .title {
+        font-size: 9.4vw;
+        line-height: 9.5vw;
+    }
+    .post .article p {
+        font-size: 4.5vw;
+        line-height: 5.9vw;
+    }
+    .post .date-wrapper span {
+        font-size: 6vw;
+    }
+    .post .date-wrapper .date {
+        font-size: 11vw;
+    }
+    .news-item .title {
+        font-size: 5.5vw;
+        line-height: 6.7vw;
+    }
+    .news-item p {
+        font-size: 4.2vw;
+        line-height: 5.9vw;
+    }
+    .post .date-wrapper {
+        margin-top: 15vw;
+    }
+}
+
+
+
+
+
+
