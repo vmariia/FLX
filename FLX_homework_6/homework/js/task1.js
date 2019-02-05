@@ -1,10 +1,11 @@
 function calcQuadraticEquation() {
-	let a = +prompt('First number', 0);
-	let b = +prompt('Second number', 0);
-	let c = +prompt('Third number', 0);
+	let a = parseFloat(prompt('First number', 0));
+	let b = parseFloat(prompt('Second number', 0));
+	let c = parseFloat(prompt('Third number', 0));
 	let d, x1, x2, x;
 
-	if ( isNaN(a) || isNaN(b) || isNaN(c) || a === 0 || a==='' || b==='' || c==='') {
+	if ( isNaN(a) || isNaN(b) || isNaN(c) || a === 0 || a==='' || b==='' || c==='' 
+		|| !isFinite(a) || !isFinite(b) || !isFinite(c)) {
 		return 'Invalid input data';
 	} else {
 		d = Math.pow(b,2) - 4*a*c;

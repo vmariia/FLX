@@ -1,10 +1,11 @@
 function calcPrice () {
-	let userMoney = +prompt('Please enter amount of money in range 0 to 9999999', 0);
-	let userDiscount = +prompt('Please enter discount in range 0 to 99', 0);
+	let userMoney = parseFloat(prompt('Please enter amount of money in range 0 to 9999999', 0));
+	let userDiscount = parseFloat(prompt('Please enter discount in range 0 to 99', 0));
 	let discountMoney, saved;
 
 	if (isNaN(userMoney) || isNaN(userDiscount) || userMoney < 0 || 
-		userMoney > 9999999 || userDiscount < 0 || userDiscount > 99) {
+		userMoney > 9999999 || userDiscount < 0 || userDiscount > 99 ||
+		!isFinite(userMoney) || !isFinite(userDiscount)) {
 		return 'Invalid input data';
 	} else {
 		saved = userMoney * userDiscount/100; 
