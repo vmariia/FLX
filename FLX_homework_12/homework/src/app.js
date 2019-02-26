@@ -1,25 +1,10 @@
 const rootNode = document.getElementById('root');
 
-// const todoItems = [
-//     {isDone: false, id: 12345, description: 'Todo 1'}
-// ];
-
 let todoItems = [];
 let i = 0;
 let id;
 let item;
-
-function addListItem(description) {
-	if (description) {
-		id = i++;
-	  item = {isDone: false, id, description};
-	  todoItems.push(item);
-	  localStorage.setItem('todoItems', JSON.stringify(todoItems));	
-		console.log('item.id ' + item.id);
-	}
-  return todoItems;
-}
-
+let root = document.createElement('div');
 
 function addTask() {
 	let container = document.createElement('div');
@@ -43,21 +28,20 @@ function addTask() {
 	mainContent.appendChild(buttonWrapper);
 
 	
-	let canselButton = document.createElement('div');
+	let canselButton = document.createElement('button');
 	canselButton.className = 'button';
 	canselButton.innerText = 'Cansel';
 	buttonWrapper.appendChild(canselButton);
-	canselButton.addEventListener("click", () => {
-    location.hash = "";
-    // history.go();
+	canselButton.addEventListener('click', () => {
+		location.hash = '';
   });
 	
-	let saveButton = document.createElement('div');
+	let saveButton = document.createElement('button');
 	saveButton.className = 'button';
 	saveButton.innerText = 'Save changes';
 	buttonWrapper.appendChild(saveButton);
-	saveButton.addEventListener("click", () => {
-    addListItem(inputField.value.trim());
+	saveButton.addEventListener('click', () => {
+  addListItem(inputField.value.trim());
     location.hash = '';
   });
 
@@ -87,32 +71,23 @@ function modifyItem(item) {
 	mainContent.appendChild(buttonWrapper);
 
 	
-	let canselButton = document.createElement('div');
+	let canselButton = document.createElement('button');
 	canselButton.className = 'button';
 	canselButton.innerText = 'Cansel';
 	buttonWrapper.appendChild(canselButton);
-	canselButton.addEventListener("click", () => {
-    location.hash = "";
-    // history.go();
+	canselButton.addEventListener('click', () => {
+    location.hash = '';
   });
 	
-	let saveButton = document.createElement('div');
+	let saveButton = document.createElement('button');
 	saveButton.className = 'button save';
 	saveButton.innerText = 'Save changes';
 	buttonWrapper.appendChild(saveButton);
 
-		mainContent.querySelector('.save').onclick = () => {
-      changeDescription(item.id, inputField.value.trim());
-	    console.log(inputField.value.trim());
-	    location.hash = '';
-  	};
-
-	// saveButton.addEventListener("click", () => {
-	// 	// alert(1);
-	// 	changeDescription(item.id, inputField.value.trim());
- //    console.log(inputField.value.trim());
- //    location.hash = '';
- //  });
+	mainContent.querySelector('.save').onclick = () => {
+    changeDescription(item.id, inputField.value.trim());
+		location.hash = '';
+	};
 
 	rootNode.appendChild(mainContent);
 	return mainContent;
@@ -128,14 +103,13 @@ function preview(todoItems) {
 	let title = document.createElement('h1');
 	title.innerText = 'Simple TODO Aplication';
 
-	let button = document.createElement('div');
+	let button = document.createElement('button');
 	button.innerText = 'Add new task';
 	button.className = 'button';
 
-	button.addEventListener("click", () => {
+	button.addEventListener('click', () => {
     location.hash += '#addTask';
   });
-
 
 	let listWrapper = document.createElement('ul');
 	mainContent.appendChild(title);
@@ -144,37 +118,65 @@ function preview(todoItems) {
 
 	if (todoItems.length) {
 		for (let item of todoItems) {
-			// debugger;
-				let li = document.createElement('li');
-				li.setAttribute('id', item.id);
-        let removeButton = document.createElement('button');
-        removeButton.className = 'removeButton';
+			let li = document.createElement('li');
+			li.setAttribute('id', item.id);
+      let removeButton = document.createElement('button');
+      removeButton.className = 'removeButton';
+      removeButton.innerHTML = '<img class="delete" src="assets/img/remove-s.jpg">';
 
-				let text = document.createElement('button');
-				text.innerText = item.description;
+      let checkButton = document.createElement('button');
+      checkButton.className = 'checkButton';
+      checkButton.innerHTML = '<img class="delete" src="assets/img/todo-s.png">';
+      let checked = () => {
+				changeStatus(item.id)
 
-				text.addEventListener("click", () => {
-			    location.hash += '#modifyItem';
-			  });
+				if (item.isDone) {
+					checkButton.innerHTML = '<img class="delete" src="assets/img/done-s.png">';
+					li.style.backgroundColor = '#cdcdcd';
+				}
+			}
+			checkButton.addEventListener('click', checked);
 
-			  removeButton.addEventListener("click", () => {
-					li.remove();
-          // removeById(item.id);
-			  });
+			let text = document.createElement('button');
+			text.className = 'description';
+			text.innerText = item.description;
 
-				li.appendChild(text);
-				li.appendChild(removeButton);
-				listWrapper.appendChild(li);
+			text.addEventListener('click', () => {
+				location.hash += '#modifyItem';
+			});
+
+			removeButton.addEventListener('click', () => {
+				li.remove();
+			});
+			li.appendChild(checkButton);
+			li.appendChild(text);
+			li.appendChild(removeButton);
+			listWrapper.appendChild(li);
 		}
 	} else {
 		let article = document.createElement('p');
 		article.innerText = 'TODO is empty';
-	  mainContent.appendChild(article);
+		mainContent.appendChild(article);
 	}
-
-
 	return mainContent;
+}
 
+function changeStatus(id) {
+  if(item.id === id) {
+    item.isDone = true;
+		localStorage.setItem('todoItems', todoItems);
+  }
+  return todoItems;
+}
+
+function addListItem(description) {
+	if (description) {
+		id = i++;
+		item = {isDone: false, id, description};
+		todoItems.push(item);
+		localStorage.setItem('todoItems', JSON.stringify(todoItems));	
+	}
+  return todoItems;
 }
 
 function getItemById(id) {
@@ -184,7 +186,6 @@ function getItemById(id) {
 function removeFromLocalStorage(id) {
 	let remove = localStorage.getItem('todoItems').filter(item => item.id !== id);
 	console.log(localStorage.setItem('todoItems', JSON.stringify(remove)));
-
 	return todoItems;
 }
 
@@ -197,26 +198,21 @@ function changeDescription(id, description) {
     return item;
   });
 
-  let a = localStorage.setItem('todoItems', JSON.stringify(newDescription));
-
+  localStorage.setItem('todoItems', JSON.stringify(newDescription));
   console.log(todoItems, JSON.stringify(newDescription));
-
-
-
   return todoItems;
 }
 
 function hide() {
-	rootNode.innerHTML = "";
+	rootNode.innerHTML = '';
   if (location.hash.endsWith('#modifyItem')) {
-  	rootNode.appendChild(modifyItem(item));
+		rootNode.appendChild(modifyItem(item));
   } else if (location.hash.endsWith('#addTask')){
-  	rootNode.appendChild(addTask());
-  	// console.log(item);
+		rootNode.appendChild(addTask());
   } else {
-  	rootNode.appendChild(preview(todoItems));
+		rootNode.appendChild(preview(todoItems));
   }
 }
 
-window.addEventListener("hashchange", hide);
+window.addEventListener('hashchange', hide);
 rootNode.appendChild(preview(todoItems));
